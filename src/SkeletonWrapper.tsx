@@ -2,21 +2,28 @@ import React from "react";
 import { Skeleton } from "./Skeleton";
 
 export interface SkeletonWrapperProps {
-  children: React.ReactElement;
+  children: any;
   isLoading: boolean;
 }
 
 export const SkeletonWrapper = ({
   children,
   isLoading,
-}: SkeletonWrapperProps) => {
-  if (!children) return <></>;
-  if (!isLoading) return <>{children}</>;
+}: SkeletonWrapperProps): React.ReactElement | null => {
+  if (children === null || children === undefined) return null;
+  if (!isLoading) return children;
+
+  if (typeof children === "string" || typeof children === "number") {
+    return <Skeleton>{children}</Skeleton>;
+  }
 
   // if the components are wrapped in a Fragment replace children with the children from the Fragment
-  if (children.type === React.Fragment) children = children.props.children;
+  if (children.type === React.Fragment) {
+    children = children.props.children;
+  }
 
-  return React.Children.map(children, (child) => {
+  const childrenWithSkeleton = React.Children.map(children, (child) => {
     return <Skeleton>{child}</Skeleton>;
   });
+  return <>{childrenWithSkeleton}</>;
 };
