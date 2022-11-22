@@ -1,34 +1,93 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
+import { useState, useEffect } from "react";
+import { SkeletonWrapper } from "./SkeletonWrapper";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 2000);
+  }, []);
+
+  const formElements = (
+    <>
+      <label htmlFor="input1">Input 1</label>
+      <br />
+      <input
+        type="text"
+        name="value1"
+        id="input1"
+        style={{ margin: "8px 0" }}
+      />
+      <br />
+      <label htmlFor="input2">Input 2</label>
+      <br />
+      <input
+        type="text"
+        name="value2"
+        id="input2"
+        style={{ margin: "8px 0" }}
+      />
+      <br />
+      <label htmlFor="input3">Input 3</label>
+      <br />
+      <textarea
+        id="input3"
+        name="story"
+        rows={5}
+        cols={33}
+        defaultValue={"It was a dark and stormy night..."}
+        style={{ margin: "8px 0" }}
+      />
+      <br />
+      <div
+        style={{
+          height: "111px",
+          width: "534px",
+          padding: "18px",
+          margin: "23px 0",
+          backgroundColor: "goldenrod",
+        }}
+      >
+        This is a div to show some random data or do with it whatever you want.
+        I'll put some weird styling on it
+      </div>
+      <button type="submit">submit</button>
+    </>
+  );
 
   return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <>
+      <button onClick={() => setIsLoading((x) => !x)}>toggle isLoading</button>
+      <div
+        style={{
+          display: "flex",
+        }}
+      >
+        <form
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            // width: "400px",
+          }}
+        >
+          <SkeletonWrapper isLoading={isLoading}>
+            {formElements}
+          </SkeletonWrapper>
+        </form>
+        <form
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            // width: "400px",
+          }}
+        >
+          {formElements}
+        </form>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </div>
-  )
+    </>
+  );
 }
 
-export default App
+export default App;
