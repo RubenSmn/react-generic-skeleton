@@ -1,4 +1,5 @@
 import React from "react";
+import { mergeMargins } from "./utils/style";
 
 export interface SkeletonProps {
   children: React.ReactElement | string | number;
@@ -40,8 +41,16 @@ export const Skeleton = ({ children }: SkeletonProps) => {
 
   if (children.type === "br") return null;
 
+  const calculatedMargin = children.props.style
+    ? mergeMargins(children.props.style)
+    : 0;
+
   const clone = React.cloneElement(children, {
-    style: { ...children.props.style, visibility: "hidden", margin: 0 },
+    style: {
+      ...children.props.style,
+      visibility: "hidden",
+      margin: 0,
+    },
   });
 
   return (
@@ -52,7 +61,7 @@ export const Skeleton = ({ children }: SkeletonProps) => {
         backgroundSize: "200% 200%",
         animation: "pulse 1.5s ease-in-out 0.5s infinite",
         borderRadius: 12,
-        margin: children.props.style?.margin ?? 0,
+        margin: calculatedMargin,
         width: "fit-content",
       }}
     >
