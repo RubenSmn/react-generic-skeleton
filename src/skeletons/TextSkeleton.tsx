@@ -1,3 +1,5 @@
+import React from "react";
+
 export interface TextSkeletonProps {
   children: string | number;
   isLoading?: boolean;
