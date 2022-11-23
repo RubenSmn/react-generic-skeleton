@@ -14,8 +14,8 @@ export const Skeleton = ({ children }: SkeletonProps) => {
   if (children.type === "br") return null;
 
   if (
-    (!(children instanceof Array) && children.type === "ul") ||
-    children.type === "ol"
+    !(children instanceof Array) &&
+    (children.type === "ul" || children.type === "ol")
   ) {
     return <ListSkeleton>{children}</ListSkeleton>;
   }
