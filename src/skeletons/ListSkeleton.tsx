@@ -41,7 +41,7 @@ export const ListSkeleton = ({
           </span>
         </div>
       );
-    }
+    },
   );
 
   return (

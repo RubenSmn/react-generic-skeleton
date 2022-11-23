@@ -30,10 +30,15 @@
     }
   },
   "prettier": {
+    "bracketSpacing": true,
+    "jsxSingleQuote": false,
     "printWidth": 80,
+    "proseWrap": "always",
+    "arrowParens": "always",
     "semi": true,
     "singleQuote": false,
-    "trailingComma": "es5"
+    "tabWidth": 2,
+    "trailingComma": "all"
   },
   "name": "react-generic-skeleton",
   "author": "RubenSmn",

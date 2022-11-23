@@ -12,7 +12,7 @@ describe("TextSkeleton", () => {
         delectus soluta animi nemo ex pariatur deleniti at beatae minus ducimus
         nihil rem?
       </TextSkeleton>,
-      div
+      div,
     );
     ReactDOM.unmountComponentAtNode(div);
   });

@@ -22,7 +22,7 @@ export const mergeMargins = (style: any) => {
 
   const fillPositions = (
     positions: MarginPositionType[],
-    value: string | number
+    value: string | number,
   ) => {
     let suffix = "";
     if (typeof value === "number") suffix = "px";
