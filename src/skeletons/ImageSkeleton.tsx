@@ -44,6 +44,7 @@ export const ImageSkeleton = ({
       <span
         style={{
           visibility: "hidden",
+          display: "flex",
         }}
       >
         {children}
