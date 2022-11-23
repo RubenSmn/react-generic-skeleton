@@ -6,7 +6,7 @@ export interface ImageSkeletonProps {
   round?: boolean;
 }
 
-const ImageSkeleton = ({
+export const ImageSkeleton = ({
   children,
   isLoading = true,
   round = false,
@@ -51,5 +51,3 @@ const ImageSkeleton = ({
     </div>
   );
 };
-
-export default ImageSkeleton;

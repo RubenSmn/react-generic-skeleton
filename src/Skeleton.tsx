@@ -1,8 +1,8 @@
 import React from "react";
 import { mergeMargins } from "./utils/style";
-import TextSkeleton from "./skeletons/TextSkeleton";
-import ListSkeleton from "./skeletons/ListSkeleton";
-import ImageSkeleton from "./skeletons/ImageSkeleton";
+import { TextSkeleton } from "./skeletons/TextSkeleton";
+import { ListSkeleton } from "./skeletons/ListSkeleton";
+import { ImageSkeleton } from "./skeletons/ImageSkeleton";
 
 export interface SkeletonProps {
   children: React.ReactElement | string | number;

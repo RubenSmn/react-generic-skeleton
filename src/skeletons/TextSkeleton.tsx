@@ -5,7 +5,7 @@ export interface TextSkeletonProps {
   isLoading?: boolean;
 }
 
-const TextSkeleton = ({
+export const TextSkeleton = ({
   children,
   isLoading = true,
 }: TextSkeletonProps): React.ReactElement => {
@@ -33,5 +33,3 @@ const TextSkeleton = ({
     </div>
   );
 };
-
-export default TextSkeleton;

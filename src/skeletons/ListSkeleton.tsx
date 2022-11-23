@@ -6,7 +6,7 @@ export interface ListSkeletonProps {
   isLoading?: boolean;
 }
 
-const ListSkeleton = ({
+export const ListSkeleton = ({
   children,
   isLoading = true,
 }: ListSkeletonProps): React.ReactElement | null => {
@@ -55,5 +55,3 @@ const ListSkeleton = ({
     </div>
   );
 };
-
-export default ListSkeleton;
