@@ -9,6 +9,10 @@ export interface TextSkeletonProps {
   children: string | number;
 }
 
+export interface ListSkeletonProps {
+  children: React.ReactElement;
+}
+
 export const TextSkeleton = ({
   children,
 }: TextSkeletonProps): React.ReactElement => {
@@ -35,11 +39,65 @@ export const TextSkeleton = ({
   );
 };
 
+export const ListSkeleton = ({
+  children,
+}: ListSkeletonProps): React.ReactElement | null => {
+  const calculatedMargin = children.props.style
+    ? mergeMargins(children.props.style)
+    : 0;
+
+  const childrenInList = React.Children.map(
+    children.props.children,
+    (child) => {
+      return (
+        <div
+          style={{
+            background:
+              "linear-gradient(90deg, lightgray 45%, #ddd 55%, lightgray 100%)",
+            backgroundSize: "200% 200%",
+            animation: "pulse 1.5s ease-in-out 0.5s infinite",
+            borderRadius: 12,
+            width: "fit-content",
+          }}
+        >
+          <span
+            style={{
+              visibility: "hidden",
+              paddingLeft: 20,
+              display: "inherit",
+            }}
+          >
+            {child}
+          </span>
+        </div>
+      );
+    }
+  );
+
+  return (
+    <div
+      style={{
+        margin: calculatedMargin,
+        paddingLeft: 20,
+      }}
+    >
+      {childrenInList}
+    </div>
+  );
+};
+
 export const Skeleton = ({ children }: SkeletonProps) => {
   if (typeof children === "string" || typeof children === "number")
     return <TextSkeleton>{children}</TextSkeleton>;
 
   if (children.type === "br") return null;
+
+  if (
+    (!(children instanceof Array) && children.type === "ul") ||
+    children.type === "ol"
+  ) {
+    return <ListSkeleton>{children}</ListSkeleton>;
+  }
 
   const calculatedMargin = children.props.style
     ? mergeMargins(children.props.style)
