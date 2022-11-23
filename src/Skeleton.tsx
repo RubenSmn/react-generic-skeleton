@@ -2,6 +2,7 @@ import React from "react";
 import { mergeMargins } from "./utils/style";
 import TextSkeleton from "./skeletons/TextSkeleton";
 import ListSkeleton from "./skeletons/ListSkeleton";
+import ImageSkeleton from "./skeletons/ImageSkeleton";
 
 export interface SkeletonProps {
   children: React.ReactElement | string | number;
@@ -18,6 +19,10 @@ export const Skeleton = ({ children }: SkeletonProps) => {
     (children.type === "ul" || children.type === "ol")
   ) {
     return <ListSkeleton>{children}</ListSkeleton>;
+  }
+
+  if (!(children instanceof Array) && children.type === "img") {
+    return <ImageSkeleton>{children}</ImageSkeleton>;
   }
 
   const calculatedMargin = children.props.style
