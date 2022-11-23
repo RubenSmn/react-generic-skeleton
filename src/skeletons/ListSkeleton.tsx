@@ -3,11 +3,15 @@ import { mergeMargins } from "../utils/style";
 
 export interface ListSkeletonProps {
   children: React.ReactElement;
+  isLoading?: boolean;
 }
 
 const ListSkeleton = ({
   children,
+  isLoading = true,
 }: ListSkeletonProps): React.ReactElement | null => {
+  if (isLoading === false) return children;
+
   const calculatedMargin = children.props.style
     ? mergeMargins(children.props.style)
     : 0;

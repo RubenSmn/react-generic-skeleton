@@ -1,8 +1,14 @@
 export interface TextSkeletonProps {
   children: string | number;
+  isLoading?: boolean;
 }
 
-const TextSkeleton = ({ children }: TextSkeletonProps): React.ReactElement => {
+const TextSkeleton = ({
+  children,
+  isLoading = true,
+}: TextSkeletonProps): React.ReactElement => {
+  if (isLoading === false) return <>{children}</>;
+
   return (
     <div
       style={{
