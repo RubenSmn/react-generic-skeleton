@@ -1,5 +1,6 @@
 import React from "react";
 import { mergeMargins } from "./utils/style";
+import { cloneElementWithSkeletonStyles } from "./utils/element";
 import { TextSkeleton } from "./skeletons/TextSkeleton";
 import { ListSkeleton } from "./skeletons/ListSkeleton";
 import { ImageSkeleton } from "./skeletons/ImageSkeleton";
@@ -29,13 +30,7 @@ export const Skeleton = ({ children }: SkeletonProps) => {
     ? mergeMargins(children.props.style)
     : 0;
 
-  const clone = React.cloneElement(children, {
-    style: {
-      ...children.props.style,
-      visibility: "hidden",
-      margin: 0,
-    },
-  });
+  const clone = cloneElementWithSkeletonStyles(children);
 
   return (
     <div
