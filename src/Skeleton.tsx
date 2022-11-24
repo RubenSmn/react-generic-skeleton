@@ -41,7 +41,6 @@ export const Skeleton = ({ children }: SkeletonProps) => {
         animation: "pulse 1.5s ease-in-out 0.5s infinite",
         borderRadius: 12,
         margin: calculatedMargin,
-        display: "flex",
         width: "fit-content",
       }}
     >
