@@ -1,4 +1,6 @@
 import React from "react";
+import { cloneElementWithSkeletonStyles } from "../utils/element";
+import { mergeMargins } from "../utils/style";
 
 export interface ImageSkeletonProps {
   children: React.ReactElement<HTMLImageElement>;
@@ -28,6 +30,12 @@ export const ImageSkeleton = ({
     }
   }
 
+  const calculatedMargin = children.props.style
+    ? mergeMargins(children.props.style)
+    : 0;
+
+  const clone = cloneElementWithSkeletonStyles(children);
+
   return (
     <div
       style={{
@@ -36,19 +44,13 @@ export const ImageSkeleton = ({
         backgroundSize: "200% 200%",
         animation: "pulse 1.5s ease-in-out 0.5s infinite",
         borderRadius: round ? "50%" : 12,
-        margin: 0,
+        margin: calculatedMargin,
         width: size ? size : "fit-content",
         height: size ?? "",
+        display: "inline-flex",
       }}
     >
-      <span
-        style={{
-          visibility: "hidden",
-          display: "flex",
-        }}
-      >
-        {children}
-      </span>
+      {clone}
     </div>
   );
 };
