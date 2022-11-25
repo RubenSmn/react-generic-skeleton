@@ -6,11 +6,13 @@ const meta: Meta = {
   title: "ListSkeleton",
   component: ListSkeleton,
   argTypes: {
-    childrenCount: {
-      name: "Children Count",
-      control: { type: "range", min: 1, max: 20 },
-      type: "number",
-      defaultValue: 3,
+    isLoading: {
+      description: "If `true`, the skeleton will show.",
+      type: "boolean",
+    },
+    children: {
+      description: "`HTMLUListElement | HTMLOListElement`",
+      type: "function",
     },
   },
 };
@@ -18,7 +20,7 @@ const meta: Meta = {
 export default meta;
 
 const Template: Story<ListSkeletonProps & { childrenCount: number }> = ({
-  childrenCount,
+  childrenCount = 3,
   ...args
 }) => (
   <ListSkeleton {...args}>
@@ -28,12 +30,7 @@ const Template: Story<ListSkeletonProps & { childrenCount: number }> = ({
       }}
     >
       {Array.from({ length: childrenCount }, (_, x) => x).map((i) => {
-        const randomPadding = Math.round(Math.random() * (48 - 0) + 1);
-        return (
-          <li key={`list-story-${i}`} style={{ paddingRight: randomPadding }}>
-            List item: {i}
-          </li>
-        );
+        return <li key={`list-story-${i}`}>List item: {i}</li>;
       })}
     </ul>
   </ListSkeleton>
