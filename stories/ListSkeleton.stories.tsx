@@ -22,11 +22,7 @@ const Template: Story<ListSkeletonProps & { childrenCount: number }> = ({
   ...args
 }) => (
   <ListSkeleton {...args}>
-    <ul
-      style={{
-        marginBlock: 16,
-      }}
-    >
+    <ul>
       {Array.from({ length: childrenCount }, (_, x) => x).map((i) => {
         const randomPadding = Math.round(Math.random() * (48 - 0) + 1);
         return (
