@@ -6,12 +6,14 @@ export interface ImageSkeletonProps {
   children: React.ReactElement<HTMLImageElement>;
   isLoading?: boolean;
   round?: boolean;
+  className?: string;
 }
 
 export const ImageSkeleton = ({
   children,
   isLoading = true,
   round = false,
+  className,
 }: ImageSkeletonProps): React.ReactElement => {
   if (isLoading === false) return <>{children}</>;
 
@@ -36,7 +38,7 @@ export const ImageSkeleton = ({
 
   return (
     <div
-      className="rgs-skeleton rgs-skeleton__image"
+      className={`rgs-skeleton rgs-skeleton__image ${className}`}
       style={{
         borderRadius: round ? "50%" : undefined,
         margin: calculatedMargin,

@@ -5,11 +5,13 @@ import { mergeMargins } from "../utils/style";
 export interface ListSkeletonProps {
   children: React.ReactElement;
   isLoading?: boolean;
+  className?: string;
 }
 
 export const ListSkeleton = ({
   children,
   isLoading = true,
+  className,
 }: ListSkeletonProps): React.ReactElement | null => {
   if (isLoading === false) return children;
 
@@ -30,7 +32,7 @@ export const ListSkeleton = ({
 
   return (
     <div
-      className="rgs-skeleton__list"
+      className={`rgs-skeleton__list ${className}`}
       style={{
         margin: calculatedMargin,
       }}
