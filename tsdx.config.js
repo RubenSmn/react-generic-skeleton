@@ -1,15 +1,29 @@
-const replace = require('@rollup/plugin-replace');
+const replace = require("@rollup/plugin-replace");
+const postcss = require("rollup-plugin-postcss");
+const autoprefixer = require("autoprefixer");
+const cssnano = require("cssnano");
 
 module.exports = {
-  // This function will run for each entry/format/env combination
-  rollup(config, opts) {
-    config.plugins = config.plugins.map(p =>
-      p.name === 'replace'
+  rollup(config, options) {
+    config.plugins.push(
+      postcss({
+        plugins: [
+          autoprefixer(),
+          cssnano({
+            preset: "default",
+          }),
+        ],
+        // only write out CSS for the first bundle (avoids pointless extra files):
+        extract: !!options.writeMeta,
+      }),
+    );
+    config.plugins = config.plugins.map((p) =>
+      p.name === "replace"
         ? replace({
-            'process.env.NODE_ENV': JSON.stringify(opts.env),
+            "process.env.NODE_ENV": JSON.stringify(options.env),
             preventAssignment: true,
           })
-        : p
+        : p,
     );
     return config; // always return a config.
   },
