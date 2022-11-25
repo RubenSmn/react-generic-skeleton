@@ -26,9 +26,7 @@ export const Skeleton = ({ children }: SkeletonProps) => {
     return <ImageSkeleton>{children}</ImageSkeleton>;
   }
 
-  const calculatedMargin = children.props.style
-    ? mergeMargins(children.props.style)
-    : 0;
+  const calculatedMargin = mergeMargins(children.props.style);
 
   const clone = cloneElementWithSkeletonStyles(children);
 

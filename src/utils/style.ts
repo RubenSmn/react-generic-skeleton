@@ -7,7 +7,9 @@ export interface MarginType {
 
 export type MarginPositionType = "top" | "bottom" | "left" | "right";
 
-export const mergeMargins = (style: any) => {
+export const mergeMargins = (style: any): string | undefined => {
+  if (style === undefined) return undefined;
+
   const margin: MarginType = { top: "0", right: "0", bottom: "0", left: "0" };
 
   const availableMargins: { [key: string]: MarginPositionType[] } = {

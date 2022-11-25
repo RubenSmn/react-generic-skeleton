@@ -13,9 +13,7 @@ export const ListSkeleton = ({
 }: ListSkeletonProps): React.ReactElement | null => {
   if (isLoading === false) return children;
 
-  const calculatedMargin = children.props.style
-    ? mergeMargins(children.props.style)
-    : 0;
+  const calculatedMargin = mergeMargins(children.props.style);
 
   const childrenInList = React.Children.map(
     children.props.children,
