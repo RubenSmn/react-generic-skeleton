@@ -1,4 +1,5 @@
 import React from "react";
+import { cloneElementWithSkeletonStyles } from "../utils/element";
 import { mergeMargins } from "../utils/style";
 
 export interface ListSkeletonProps {
@@ -19,6 +20,12 @@ export const ListSkeleton = ({
   const childrenInList = React.Children.map(
     children.props.children,
     (child) => {
+      const clone = cloneElementWithSkeletonStyles(child, {
+        visibility: "hidden",
+        paddingLeft: 20,
+        display: "inherit",
+      });
+
       return (
         <div
           style={{
@@ -30,15 +37,7 @@ export const ListSkeleton = ({
             width: "fit-content",
           }}
         >
-          <span
-            style={{
-              visibility: "hidden",
-              paddingLeft: 20,
-              display: "inherit",
-            }}
-          >
-            {child}
-          </span>
+          {clone}
         </div>
       );
     },
