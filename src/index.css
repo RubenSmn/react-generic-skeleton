@@ -1,7 +1,7 @@
 .rgs-skeleton {
   background: linear-gradient(90deg, lightgray 45%, #ddd 55%, lightgray 100%);
   background-size: 200% 200%;
-  animation-name: pulse;
+  animation-name: rgs-pulse;
   animation-duration: 1.5s;
   animation-timing-function: ease-in-out;
   animation-delay: 0.5s;
@@ -20,7 +20,7 @@
   display: inline-flex;
 }
 
-@keyframes pulse {
+@keyframes rgs-pulse {
   0% {
     opacity: 1;
   }
