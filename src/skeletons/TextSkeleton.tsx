@@ -12,17 +12,7 @@ export const TextSkeleton = ({
   if (isLoading === false) return <>{children}</>;
 
   return (
-    <div
-      style={{
-        background:
-          "linear-gradient(90deg, lightgray 45%, #ddd 55%, lightgray 100%)",
-        backgroundSize: "200% 200%",
-        animation: "pulse 1.5s ease-in-out 0.5s infinite",
-        borderRadius: 12,
-        margin: 0,
-        width: "fit-content",
-      }}
-    >
+    <div className="rgs-skeleton">
       <span
         style={{
           visibility: "hidden",

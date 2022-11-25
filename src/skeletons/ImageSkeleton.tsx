@@ -38,16 +38,12 @@ export const ImageSkeleton = ({
 
   return (
     <div
+      className="rgs-skeleton rgs-skeleton__image"
       style={{
-        background:
-          "linear-gradient(90deg, lightgray 45%, #ddd 55%, lightgray 100%)",
-        backgroundSize: "200% 200%",
-        animation: "pulse 1.5s ease-in-out 0.5s infinite",
-        borderRadius: round ? "50%" : 12,
+        borderRadius: round ? "50%" : undefined,
         margin: calculatedMargin,
-        width: size ? size : "fit-content",
-        height: size ?? "",
-        display: "inline-flex",
+        width: size ?? undefined,
+        height: size ?? undefined,
       }}
     >
       {clone}

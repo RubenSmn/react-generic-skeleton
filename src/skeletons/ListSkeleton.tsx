@@ -26,28 +26,15 @@ export const ListSkeleton = ({
         display: "inherit",
       });
 
-      return (
-        <div
-          style={{
-            background:
-              "linear-gradient(90deg, lightgray 45%, #ddd 55%, lightgray 100%)",
-            backgroundSize: "200% 200%",
-            animation: "pulse 1.5s ease-in-out 0.5s infinite",
-            borderRadius: 12,
-            width: "fit-content",
-          }}
-        >
-          {clone}
-        </div>
-      );
+      return <div className="rgs-skeleton">{clone}</div>;
     },
   );
 
   return (
     <div
+      className="rgs-skeleton__list"
       style={{
         margin: calculatedMargin,
-        paddingLeft: 20,
       }}
     >
       {childrenInList}

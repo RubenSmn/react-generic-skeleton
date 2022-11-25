@@ -1,3 +1,25 @@
+.rgs-skeleton {
+  background: linear-gradient(90deg, lightgray 45%, #ddd 55%, lightgray 100%);
+  background-size: 200% 200%;
+  animation-name: pulse;
+  animation-duration: 1.5s;
+  animation-timing-function: ease-in-out;
+  animation-delay: 0.5s;
+  animation-iteration-count: infinite;
+  border-radius: 12px;
+  width: fit-content;
+  margin: 0;
+  padding: 0;
+}
+
+.rgs-skeleton__list {
+  padding-left: 20px;
+}
+
+.rgs-skeleton__image {
+  display: inline-flex;
+}
+
 @keyframes pulse {
   0% {
     opacity: 1;

@@ -34,11 +34,8 @@ export const Skeleton = ({ children }: SkeletonProps) => {
 
   return (
     <div
+      className="rgs-skeleton"
       style={{
-        background:
-          "linear-gradient(90deg, lightgray 45%, #ddd 55%, lightgray 100%)",
-        backgroundSize: "200% 200%",
-        animation: "pulse 1.5s ease-in-out 0.5s infinite",
         borderRadius: 12,
         margin: calculatedMargin,
         width: "fit-content",
