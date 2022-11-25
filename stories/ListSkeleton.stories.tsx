@@ -8,7 +8,7 @@ const meta: Meta = {
   argTypes: {
     childrenCount: {
       name: "Children Count",
-      control: "number",
+      control: { type: "range", min: 1, max: 20 },
       type: "number",
       defaultValue: 3,
     },
