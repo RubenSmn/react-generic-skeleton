@@ -11,7 +11,7 @@ const meta: Meta = {
       type: "boolean",
     },
     children: {
-      description: "`HTMLUListElement | HTMLOListElement`",
+      description: "`element`",
       type: "function",
     },
   },
