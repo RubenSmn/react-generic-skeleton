@@ -10,6 +10,16 @@ const meta: Meta = {
       description: "If `true`, the skeleton will show.",
       type: "boolean",
     },
+    indent: {
+      description: "Number used to indent the list in `px`",
+      type: "number",
+      control: {
+        type: "range",
+        min: 0,
+        step: 2,
+      },
+      defaultValue: 20,
+    },
     children: {
       description: "`element`",
       type: "function",

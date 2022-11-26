@@ -9,12 +9,14 @@ export interface ListSkeletonProps {
   children: React.ReactElement;
   isLoading?: boolean;
   className?: string;
+  indent?: number;
 }
 
 export const ListSkeleton = ({
   children,
   isLoading = true,
   className,
+  indent = 20,
 }: ListSkeletonProps): React.ReactElement | null => {
   if (isLoading === false) return children;
 
@@ -40,6 +42,7 @@ export const ListSkeleton = ({
       className={calculatedClassName}
       style={{
         margin: calculatedMargin,
+        paddingLeft: indent === 20 ? undefined : indent,
       }}
     >
       {childrenInList}
