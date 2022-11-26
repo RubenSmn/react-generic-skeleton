@@ -1,5 +1,8 @@
 import React from "react";
-import { cloneElementWithSkeletonStyles } from "../utils/element";
+import {
+  cloneElementWithSkeletonStyles,
+  mergeClassName,
+} from "../utils/element";
 import { mergeMargins } from "../utils/style";
 
 export interface ImageSkeletonProps {
@@ -36,9 +39,14 @@ export const ImageSkeleton = ({
 
   const clone = cloneElementWithSkeletonStyles(children);
 
+  const calculatedClassName = mergeClassName(
+    "rgs-skeleton rgs-skeleton__image",
+    className,
+  );
+
   return (
     <div
-      className={`rgs-skeleton rgs-skeleton__image ${className}`}
+      className={calculatedClassName}
       style={{
         borderRadius: round ? "50%" : undefined,
         margin: calculatedMargin,

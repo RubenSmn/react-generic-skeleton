@@ -1,5 +1,8 @@
 import React from "react";
-import { cloneElementWithSkeletonStyles } from "../utils/element";
+import {
+  cloneElementWithSkeletonStyles,
+  mergeClassName,
+} from "../utils/element";
 import { mergeMargins } from "../utils/style";
 
 export interface ListSkeletonProps {
@@ -30,9 +33,11 @@ export const ListSkeleton = ({
     },
   );
 
+  const calculatedClassName = mergeClassName("rgs-skeleton__list", className);
+
   return (
     <div
-      className={`rgs-skeleton__list ${className}`}
+      className={calculatedClassName}
       style={{
         margin: calculatedMargin,
       }}

@@ -1,4 +1,5 @@
 import React from "react";
+import { mergeClassName } from "../utils/element";
 
 export interface TextSkeletonProps {
   children: string | number;
@@ -13,8 +14,10 @@ export const TextSkeleton = ({
 }: TextSkeletonProps): React.ReactElement => {
   if (isLoading === false) return <>{children}</>;
 
+  const calculatedClassName = mergeClassName("rgs-skeleton", className);
+
   return (
-    <div className={`rgs-skeleton ${className}`}>
+    <div className={calculatedClassName}>
       <span
         style={{
           visibility: "hidden",
