@@ -10,6 +10,7 @@ export interface ListSkeletonProps {
   isLoading?: boolean;
   className?: string;
   indent?: number;
+  itemSpacing?: number;
 }
 
 export const ListSkeleton = ({
@@ -17,6 +18,7 @@ export const ListSkeleton = ({
   isLoading = true,
   className,
   indent = 20,
+  itemSpacing = 0,
 }: ListSkeletonProps): React.ReactElement | null => {
   if (isLoading === false) return children;
 
@@ -31,7 +33,16 @@ export const ListSkeleton = ({
         display: "inherit",
       });
 
-      return <div className="rgs-skeleton">{clone}</div>;
+      return (
+        <div
+          className="rgs-skeleton"
+          style={{
+            marginBlock: itemSpacing === 0 ? undefined : itemSpacing,
+          }}
+        >
+          {clone}
+        </div>
+      );
     },
   );
 

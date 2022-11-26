@@ -20,6 +20,15 @@ const meta: Meta = {
       },
       defaultValue: 20,
     },
+    itemSpacing: {
+      description: "Number used to space the list items in `px`",
+      type: "number",
+      control: {
+        type: "range",
+        min: 0,
+        step: 2,
+      },
+    },
     children: {
       description: "`element`",
       type: "function",
