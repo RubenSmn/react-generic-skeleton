@@ -11,7 +11,6 @@ export interface SkeletonConfig {
   borderRadius?: number;
   animation?: Animation;
   background?: string;
-  backgroundColor?: string;
 }
 
 export interface SkeletonProviderProps {
