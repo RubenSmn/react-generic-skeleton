@@ -1,4 +1,5 @@
 import React from "react";
+import { useSkeletonConfig } from "../SkeletonProvider";
 import {
   cloneElementWithSkeletonStyles,
   mergeClassName,
@@ -19,6 +20,8 @@ export const ImageSkeleton = ({
   className,
 }: ImageSkeletonProps): React.ReactElement => {
   if (isLoading === false) return <>{children}</>;
+
+  const { borderRadius, background, animation } = useSkeletonConfig();
 
   let size;
   if (round === true) {
@@ -48,10 +51,12 @@ export const ImageSkeleton = ({
     <div
       className={calculatedClassName}
       style={{
-        borderRadius: round ? "50%" : undefined,
+        borderRadius: round ? "50%" : borderRadius,
         margin: calculatedMargin,
         width: size ?? undefined,
         height: size ?? undefined,
+        background: background,
+        ...animation,
       }}
     >
       <svg className="rgs-skeleton__image__placeholder" viewBox="0 0 24 16">

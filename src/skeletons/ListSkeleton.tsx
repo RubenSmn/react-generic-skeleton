@@ -1,4 +1,5 @@
 import React from "react";
+import { useSkeletonConfig } from "../SkeletonProvider";
 import {
   cloneElementWithSkeletonStyles,
   mergeClassName,
@@ -22,6 +23,8 @@ export const ListSkeleton = ({
 }: ListSkeletonProps): React.ReactElement | null => {
   if (isLoading === false) return children;
 
+  const { borderRadius, background, animation } = useSkeletonConfig();
+
   const calculatedMargin = mergeMargins(children.props.style);
 
   const childrenInList = React.Children.map(
@@ -38,6 +41,9 @@ export const ListSkeleton = ({
           className="rgs-skeleton"
           style={{
             marginBlock: itemSpacing === 0 ? undefined : itemSpacing,
+            borderRadius: borderRadius,
+            background: background,
+            ...animation,
           }}
         >
           {clone}
