@@ -54,6 +54,10 @@ export const ImageSkeleton = ({
         height: size ?? undefined,
       }}
     >
+      <svg className="rgs-skeleton__image__placeholder" viewBox="0 0 24 16">
+        <circle cx="7" r="1.2" cy="5.4" />
+        <path d="M8.5 8 l2.5 3.01 L14.5 6.5 l4.5 6 H5 l3.5-4.5z" />
+      </svg>
       {clone}
     </div>
   );

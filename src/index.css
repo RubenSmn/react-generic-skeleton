@@ -17,7 +17,15 @@
 }
 
 .rgs-skeleton__image {
+  position: relative;
   display: inline-flex;
+}
+
+.rgs-skeleton__image__placeholder {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  fill: #bbb;
 }
 
 @keyframes rgs-pulse {
