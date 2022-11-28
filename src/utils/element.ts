@@ -43,7 +43,7 @@ export const mergeClassName = (
 
   if (typeof extra === "string") return `${predefined} ${extra}`;
 
-  const joinedClassNames = extra.join(" ");
+  const joinedClassNames = extra.filter((x) => x !== undefined).join(" ");
 
   return `${predefined} ${joinedClassNames}`;
 };
