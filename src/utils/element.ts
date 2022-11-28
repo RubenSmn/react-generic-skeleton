@@ -1,4 +1,5 @@
 import React from "react";
+import { cloneStyle } from "../constants";
 
 /**
  * Returns clone of the element with new style
@@ -12,10 +13,7 @@ import React from "react";
  */
 export const cloneElementWithSkeletonStyles = (
   element: React.ReactElement,
-  style: React.CSSProperties = {
-    visibility: "hidden",
-    margin: 0,
-  },
+  style: React.CSSProperties = cloneStyle,
 ): React.ReactElement => {
   const clone = React.cloneElement(element, {
     style: {
