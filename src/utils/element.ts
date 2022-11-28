@@ -1,5 +1,6 @@
 import React from "react";
 import { cloneStyle } from "../constants";
+import type { SkeletonConfig } from "../SkeletonProvider";
 
 /**
  * Returns clone of the element with new style
@@ -46,4 +47,35 @@ export const mergeClassName = (
   const joinedClassNames = extra.filter((x) => x !== undefined).join(" ");
 
   return `${predefined} ${joinedClassNames}`;
+};
+
+/**
+ * Returns an animationClassName and animationProps
+ *
+ *
+ * @param animation - The animation prop from the SkeletonConfig
+ *
+ * @returns props - animationClassName and animationProps
+ *
+ */
+export const resolveAnimationProps = (
+  animation: SkeletonConfig["animation"],
+) => {
+  const props: {
+    animationClassName: string | undefined;
+    animationProps: {};
+  } = {
+    animationClassName: undefined,
+    animationProps: {},
+  };
+
+  if (typeof animation === "string") {
+    props.animationClassName = `rgs-skeleton-${animation}`;
+  } else {
+    props.animationProps = {
+      ...animation,
+    };
+  }
+
+  return props;
 };

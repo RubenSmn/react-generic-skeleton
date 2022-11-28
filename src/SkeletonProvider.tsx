@@ -7,9 +7,11 @@ interface Animation {
   animationDelay?: string;
 }
 
+export type AnimationNamePreset = "pulse" | "wave";
+
 export interface SkeletonConfig {
   borderRadius?: number;
-  animation?: Animation;
+  animation?: Animation | AnimationNamePreset;
   background?: string;
 }
 
@@ -18,14 +20,20 @@ export interface SkeletonProviderProps {
   config?: SkeletonConfig;
 }
 
-export const SkeletonContext = createContext<SkeletonConfig>({});
+export const defaultSkeletonConfig: SkeletonConfig = {
+  animation: "pulse",
+};
+
+export const SkeletonContext = createContext<SkeletonConfig>(
+  defaultSkeletonConfig,
+);
 
 export const SkeletonProvider = ({
   children,
-  config,
+  config = defaultSkeletonConfig,
 }: SkeletonProviderProps) => {
   return (
-    <SkeletonContext.Provider value={config ?? {}}>
+    <SkeletonContext.Provider value={config}>
       {children}
     </SkeletonContext.Provider>
   );

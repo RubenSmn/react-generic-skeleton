@@ -3,6 +3,7 @@ import { useSkeletonConfig } from "../SkeletonProvider";
 import {
   cloneElementWithSkeletonStyles,
   mergeClassName,
+  resolveAnimationProps,
 } from "../utils/element";
 import { mergeMargins } from "../utils/style";
 
@@ -27,6 +28,9 @@ export const ListSkeleton = ({
 
   const calculatedMargin = mergeMargins(children.props.style);
 
+  const { animationProps, animationClassName } =
+    resolveAnimationProps(animation);
+
   const childrenInList = React.Children.map(
     children.props.children,
     (child) => {
@@ -36,14 +40,16 @@ export const ListSkeleton = ({
         display: "inherit",
       });
 
+      const childClassName = mergeClassName("rgs-skeleton", animationClassName);
+
       return (
         <div
-          className="rgs-skeleton"
+          className={childClassName}
           style={{
             marginBlock: itemSpacing === 0 ? undefined : itemSpacing,
             borderRadius: borderRadius,
             background: background,
-            ...animation,
+            ...animationProps,
           }}
         >
           {clone}

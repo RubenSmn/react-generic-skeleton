@@ -1,6 +1,6 @@
 import React from "react";
 import { useSkeletonConfig } from "../SkeletonProvider";
-import { mergeClassName } from "../utils/element";
+import { mergeClassName, resolveAnimationProps } from "../utils/element";
 
 export interface TextSkeletonProps {
   children: string | number;
@@ -17,7 +17,13 @@ export const TextSkeleton = ({
 
   if (isLoading === false) return <>{children}</>;
 
-  const calculatedClassName = mergeClassName("rgs-skeleton", className);
+  const { animationProps, animationClassName } =
+    resolveAnimationProps(animation);
+
+  const calculatedClassName = mergeClassName("rgs-skeleton", [
+    className,
+    animationClassName,
+  ]);
 
   return (
     <div
@@ -25,7 +31,7 @@ export const TextSkeleton = ({
       style={{
         borderRadius: borderRadius,
         background: background,
-        ...animation,
+        ...animationProps,
       }}
     >
       <span

@@ -3,6 +3,7 @@ import { useSkeletonConfig } from "../SkeletonProvider";
 import {
   cloneElementWithSkeletonStyles,
   mergeClassName,
+  resolveAnimationProps,
 } from "../utils/element";
 import { mergeMargins } from "../utils/style";
 
@@ -42,9 +43,12 @@ export const ImageSkeleton = ({
 
   const clone = cloneElementWithSkeletonStyles(children);
 
+  const { animationProps, animationClassName } =
+    resolveAnimationProps(animation);
+
   const calculatedClassName = mergeClassName(
     "rgs-skeleton rgs-skeleton__image",
-    className,
+    [className, animationClassName],
   );
 
   return (
@@ -56,7 +60,7 @@ export const ImageSkeleton = ({
         width: size ?? undefined,
         height: size ?? undefined,
         background: background,
-        ...animation,
+        ...animationProps,
       }}
     >
       <svg className="rgs-skeleton__image__placeholder" viewBox="0 0 24 16">
