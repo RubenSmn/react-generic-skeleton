@@ -13,9 +13,9 @@ export const TextSkeleton = ({
   isLoading = true,
   className,
 }: TextSkeletonProps): React.ReactElement => {
-  if (isLoading === false) return <>{children}</>;
-
   const { borderRadius, background, animation } = useSkeletonConfig();
+
+  if (isLoading === false) return <>{children}</>;
 
   const calculatedClassName = mergeClassName("rgs-skeleton", className);
 

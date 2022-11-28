@@ -19,9 +19,9 @@ export const ImageSkeleton = ({
   round = false,
   className,
 }: ImageSkeletonProps): React.ReactElement => {
-  if (isLoading === false) return <>{children}</>;
-
   const { borderRadius, background, animation } = useSkeletonConfig();
+
+  if (isLoading === false) return <>{children}</>;
 
   let size;
   if (round === true) {

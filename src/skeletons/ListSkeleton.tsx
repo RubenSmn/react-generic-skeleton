@@ -21,9 +21,9 @@ export const ListSkeleton = ({
   indent = 20,
   itemSpacing = 0,
 }: ListSkeletonProps): React.ReactElement | null => {
-  if (isLoading === false) return children;
-
   const { borderRadius, background, animation } = useSkeletonConfig();
+
+  if (isLoading === false) return children;
 
   const calculatedMargin = mergeMargins(children.props.style);
 
