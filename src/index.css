@@ -1,9 +1,6 @@
 .rgs-skeleton {
   background: linear-gradient(90deg, lightgray 45%, #ddd 55%, lightgray 100%);
   background-size: 200% 200%;
-  animation-name: rgs-pulse;
-  animation-duration: 1.5s;
-  animation-timing-function: ease-in-out;
   animation-delay: 0.5s;
   animation-iteration-count: infinite;
   border-radius: 12px;
@@ -28,6 +25,18 @@
   fill: #bbb;
 }
 
+.rgs-skeleton-pulse {
+  animation-name: rgs-pulse;
+  animation-duration: 1.5s;
+  animation-timing-function: ease-in-out;
+}
+
+.rgs-skeleton-wave {
+  animation-name: rgs-wave;
+  animation-duration: 4s;
+  animation-timing-function: ease;
+}
+
 @keyframes rgs-pulse {
   0% {
     opacity: 1;
@@ -37,5 +46,15 @@
   }
   100% {
     opacity: 1;
+  }
+}
+
+@keyframes rgs-wave {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
   }
 }
