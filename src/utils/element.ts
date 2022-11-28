@@ -1,5 +1,15 @@
 import React from "react";
 
+/**
+ * Returns clone of the element with new style
+ *
+ *
+ * @param element - The element to clone
+ * @param style - The new style
+ *
+ * @returns The cloned element with new style
+ *
+ */
 export const cloneElementWithSkeletonStyles = (
   element: React.ReactElement,
   style: React.CSSProperties = {
