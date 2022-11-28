@@ -30,13 +30,20 @@ export const cloneElementWithSkeletonStyles = (
  *
  *
  * @param predefined - The default className of the element
- * @param extra - The additional className
+ * @param extra - The additional className(s)
  *
  * @returns The merged className or the predefined if no extra className is provided
  *
  */
-export const mergeClassName = (predefined: string, extra?: string): string => {
+export const mergeClassName = (
+  predefined: string,
+  extra?: string | (string | undefined)[],
+): string => {
   if (extra === undefined || extra === null) return predefined;
 
-  return `${predefined} ${extra}`;
+  if (typeof extra === "string") return `${predefined} ${extra}`;
+
+  const joinedClassNames = extra.join(" ");
+
+  return `${predefined} ${joinedClassNames}`;
 };
