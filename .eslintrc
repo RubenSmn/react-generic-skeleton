@@ -1,9 +1,22 @@
 {
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": 10
+  },
   "env": {
     "es6": true,
     "browser": true,
     "node": true
   },
+  "plugins": ["@typescript-eslint/eslint-plugin"],
+  "extends": [
+    "plugin:import/recommended",
+    "plugin:import/typescript",
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
+    "airbnb-typescript",
+    "prettier"
+  ],
   "rules": {
     "arrow-parens": "off"
   }

@@ -1,6 +1,6 @@
 {
   "**/*.{ts,tsx,js,jsx}": [
-    "yarn lint",
+    "yarn lint --fix",
     "prettier --write"
   ],
   "**/*.{md,mdx,yml,json,babelrc,eslintrc,prettierrc}": [
