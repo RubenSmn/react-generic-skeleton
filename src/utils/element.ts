@@ -1,6 +1,6 @@
 import React from "react";
 import { cloneStyle } from "../constants";
-import type { SkeletonConfig } from "../SkeletonProvider";
+import { defaultSkeletonConfig, SkeletonConfig } from "../SkeletonProvider";
 
 /**
  * Returns clone of the element with new style
@@ -73,7 +73,10 @@ export const resolveAnimationProps = (
 
   if (typeof animation === "string") {
     props.animationClassName = `rgs-skeleton-${animation}`;
-  } else {
+  } else if (animation !== undefined) {
+    if (!("animationName" in animation)) {
+      props.animationClassName = `rgs-skeleton-${defaultSkeletonConfig.animation}`;
+    }
     props.animationProps = {
       ...animation,
     };
