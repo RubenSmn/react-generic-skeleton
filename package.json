@@ -24,11 +24,6 @@
   "peerDependencies": {
     "react": ">=16"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "tsdx lint"
-    }
-  },
   "name": "react-generic-skeleton",
   "author": "RubenSmn",
   "module": "dist/react-generic-skeleton.esm.js",
