@@ -29,17 +29,6 @@
       "pre-commit": "tsdx lint"
     }
   },
-  "prettier": {
-    "bracketSpacing": true,
-    "jsxSingleQuote": false,
-    "printWidth": 80,
-    "proseWrap": "always",
-    "arrowParens": "always",
-    "semi": true,
-    "singleQuote": false,
-    "tabWidth": 2,
-    "trailingComma": "all"
-  },
   "name": "react-generic-skeleton",
   "author": "RubenSmn",
   "module": "dist/react-generic-skeleton.esm.js",
