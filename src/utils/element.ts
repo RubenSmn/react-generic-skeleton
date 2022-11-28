@@ -64,19 +64,17 @@ export const resolveAnimationProps = (
   animation: SkeletonConfig["animation"],
 ) => {
   const props: {
-    animationClassName: string | undefined;
+    animationClassName: string;
     animationProps: {};
   } = {
-    animationClassName: undefined,
+    animationClassName: `rgs-skeleton-${defaultSkeletonConfig.animation}`,
     animationProps: {},
   };
 
   if (typeof animation === "string") {
     props.animationClassName = `rgs-skeleton-${animation}`;
   } else if (animation !== undefined) {
-    if (!("animationName" in animation)) {
-      props.animationClassName = `rgs-skeleton-${defaultSkeletonConfig.animation}`;
-    }
+    props.animationClassName = "";
     props.animationProps = {
       ...animation,
     };
