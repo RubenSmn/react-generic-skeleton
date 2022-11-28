@@ -46,6 +46,8 @@ export const mergeClassName = (
 
   const joinedClassNames = extra.filter((x) => x !== undefined).join(" ");
 
+  if (joinedClassNames === "") return predefined;
+
   return `${predefined} ${joinedClassNames}`;
 };
 
