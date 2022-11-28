@@ -1,15 +1,22 @@
 import React from "react";
 import { mergeMargins } from "./utils/style";
-import { cloneElementWithSkeletonStyles } from "./utils/element";
+import {
+  cloneElementWithSkeletonStyles,
+  mergeClassName,
+  resolveAnimationProps,
+} from "./utils/element";
 import { TextSkeleton } from "./skeletons/TextSkeleton";
 import { ListSkeleton } from "./skeletons/ListSkeleton";
 import { ImageSkeleton } from "./skeletons/ImageSkeleton";
+import { useSkeletonConfig } from "./SkeletonProvider";
 
 export interface SkeletonProps {
   children: React.ReactElement | string | number;
 }
 
 export const Skeleton = ({ children }: SkeletonProps) => {
+  const { borderRadius, background, animation } = useSkeletonConfig();
+
   if (typeof children === "string" || typeof children === "number")
     return <TextSkeleton>{children}</TextSkeleton>;
 
@@ -30,13 +37,19 @@ export const Skeleton = ({ children }: SkeletonProps) => {
 
   const clone = cloneElementWithSkeletonStyles(children);
 
+  const { animationProps, animationClassName } =
+    resolveAnimationProps(animation);
+
+  const mergedClassName = mergeClassName("rgs-skeleton", animationClassName);
+
   return (
     <div
-      className="rgs-skeleton"
+      className={mergedClassName}
       style={{
-        borderRadius: 12,
         margin: calculatedMargin,
-        width: "fit-content",
+        borderRadius: borderRadius,
+        background: background,
+        ...animationProps,
       }}
     >
       {clone}
