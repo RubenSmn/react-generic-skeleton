@@ -4,6 +4,7 @@ import {
   ImageSkeleton,
   ImageSkeletonProps,
 } from "../src/skeletons/ImageSkeleton";
+import PageLayout from "./PageLayout";
 
 const meta: Meta = {
   title: "ImageSkeleton",
@@ -20,6 +21,16 @@ const meta: Meta = {
     children: {
       description: "`HTMLImageElement`",
       type: "function",
+    },
+  },
+  parameters: {
+    docs: {
+      page: () => (
+        <PageLayout
+          subtitle="Skeleton for images"
+          description="Use this wrapper to generate skeletons for images"
+        />
+      ),
     },
   },
 };

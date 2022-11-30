@@ -1,6 +1,7 @@
 import React from "react";
 import { Meta, Story } from "@storybook/react";
 import { ListSkeleton, ListSkeletonProps } from "../src/skeletons/ListSkeleton";
+import PageLayout from "./PageLayout";
 
 const meta: Meta = {
   title: "ListSkeleton",
@@ -18,7 +19,6 @@ const meta: Meta = {
         min: 0,
         step: 2,
       },
-      defaultValue: 20,
     },
     itemSpacing: {
       description: "Number used to space the list items in `px`",
@@ -32,6 +32,16 @@ const meta: Meta = {
     children: {
       description: "`element`",
       type: "function",
+    },
+  },
+  parameters: {
+    docs: {
+      page: () => (
+        <PageLayout
+          subtitle="Skeleton for lists"
+          description="Use this wrapper to generate skeletons for lists"
+        />
+      ),
     },
   },
 };
@@ -61,9 +71,9 @@ Default.args = {
   isLoading: true,
 };
 
-export const Long = Template.bind({});
+export const withManyItems = Template.bind({});
 
-Long.args = {
+withManyItems.args = {
   isLoading: true,
   childrenCount: 12,
 };
