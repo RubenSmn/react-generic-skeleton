@@ -6,6 +6,7 @@ import {
   Primary,
   ArgsTable,
   Stories,
+  Heading,
 } from "@storybook/addon-docs";
 
 export interface PageLayoutProps {
@@ -48,6 +49,7 @@ const PageLayout = ({ subtitle, description }: PageLayoutProps) => {
       </div>
       <Description>{description}</Description>
       <Primary />
+      <Heading>Props</Heading>
       <ArgsTable />
       <Stories />
     </PageContext.Provider>
