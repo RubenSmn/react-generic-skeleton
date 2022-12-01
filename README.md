@@ -27,6 +27,9 @@ import { SkeletonWrapper } from "react-generic-skeleton";
 </SkeletonWrapper>;
 ```
 
+If you want to try it out first, take a look in the
+[CodeSandbox](https://codesandbox.io/s/react-generic-skeleton-example-kwt77b?file=/src/App.js)
+
 ### Documentation
 
 The full documentation can be found
