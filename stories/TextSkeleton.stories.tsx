@@ -1,7 +1,7 @@
 import React from "react";
 import { Meta, Story } from "@storybook/react";
 import { TextSkeleton, TextSkeletonProps } from "../src/skeletons/TextSkeleton";
-import PageLayout, { usePageContext } from "./PageLayout";
+import PageLayout, { usePageContext } from "./components/PageLayout";
 
 const meta: Meta = {
   title: "Components/TextSkeleton",

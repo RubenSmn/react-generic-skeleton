@@ -4,7 +4,7 @@ import {
   ImageSkeleton,
   ImageSkeletonProps,
 } from "../src/skeletons/ImageSkeleton";
-import PageLayout, { usePageContext } from "./PageLayout";
+import PageLayout, { usePageContext } from "./components/PageLayout";
 
 const meta: Meta = {
   title: "Components/ImageSkeleton",
