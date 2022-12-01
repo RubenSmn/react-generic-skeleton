@@ -1,6 +1,6 @@
 import React, { createContext, useContext } from "react";
 
-interface Animation {
+export interface Animation {
   animationName?: string;
   animationDuration?: string;
   animationTimingFunction?: string;
