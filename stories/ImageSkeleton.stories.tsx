@@ -14,7 +14,7 @@ const meta: Meta = {
       description: "If `true`, the skeleton will show.",
       type: "boolean",
     },
-    round: {
+    isRound: {
       description: "If `true`, the skeleton will be round.",
       type: "boolean",
     },
@@ -55,12 +55,12 @@ export const Default = Template.bind({});
 
 Default.args = {
   isLoading: true,
-  round: false,
+  isRound: false,
 };
 
-export const Round = Template.bind({});
+export const withRound = Template.bind({});
 
-Round.args = {
+withRound.args = {
   isLoading: true,
-  round: true,
+  isRound: true,
 };

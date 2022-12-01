@@ -16,14 +16,14 @@ export interface ImageSkeletonProps {
   /**
    * If `true`, the skeleton will be a circle.
    */
-  round?: boolean;
+  isRound?: boolean;
   className?: string;
 }
 
 export const ImageSkeleton = ({
   children,
   isLoading = true,
-  round = false,
+  isRound = false,
   className,
 }: ImageSkeletonProps): React.ReactElement => {
   const { borderRadius, background, animation } = useSkeletonConfig();
@@ -31,7 +31,7 @@ export const ImageSkeleton = ({
   if (isLoading === false) return <>{children}</>;
 
   let size;
-  if (round === true) {
+  if (isRound === true) {
     const height = children.props.height;
     const width = children.props.width;
 
@@ -61,7 +61,7 @@ export const ImageSkeleton = ({
     <div
       className={calculatedClassName}
       style={{
-        borderRadius: round ? "50%" : borderRadius,
+        borderRadius: isRound ? "50%" : borderRadius,
         margin: calculatedMargin,
         width: size ?? undefined,
         height: size ?? undefined,
