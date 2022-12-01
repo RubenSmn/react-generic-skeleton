@@ -43,7 +43,7 @@ export const mergeMargins = (style: any): string | undefined => {
 
     if (values.length === 1) {
       // margin: 12px
-      fillPositions(availableMargins["margin"], values[0]);
+      fillPositions(availableMargins.margin, values[0]);
     } else if (values.length === 2) {
       // margin: 12px 8px
       fillPositions(["top", "bottom"], values[0]);
@@ -55,6 +55,9 @@ export const mergeMargins = (style: any): string | undefined => {
       fillPositions(["bottom"], values[2]);
     }
   });
+
+  if (Object.values(margin).every((position) => position === "0"))
+    return undefined;
 
   return `${margin.top} ${margin.right} ${margin.bottom} ${margin.left}`;
 };
