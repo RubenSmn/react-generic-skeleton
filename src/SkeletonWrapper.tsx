@@ -3,6 +3,9 @@ import { Skeleton } from "./Skeleton";
 
 export interface SkeletonWrapperProps {
   children: any;
+  /**
+   * @param - if true, the skeleton will show
+   */
   isLoading: boolean;
 }
 

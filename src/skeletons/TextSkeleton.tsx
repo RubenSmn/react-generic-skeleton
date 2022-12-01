@@ -4,6 +4,9 @@ import { mergeClassName, resolveAnimationProps } from "../utils/element";
 
 export interface TextSkeletonProps {
   children: string | number;
+  /**
+   * If `true`, the skeleton will show.
+   */
   isLoading?: boolean;
   className?: string;
 }

@@ -9,18 +9,27 @@ import { mergeMargins } from "../utils/style";
 
 export interface ListSkeletonProps {
   children: React.ReactElement;
+  /**
+   * If `true`, the skeleton will show.
+   */
   isLoading?: boolean;
-  className?: string;
+  /**
+   * The number of pixels that will be applied to shift the list from the left.
+   */
   indent?: number;
+  /**
+   * The number of *marginTop* and *marginBottom* that will be applied to the list items.
+   */
   itemSpacing?: number;
+  className?: string;
 }
 
 export const ListSkeleton = ({
   children,
   isLoading = true,
-  className,
   indent = 20,
   itemSpacing = 0,
+  className,
 }: ListSkeletonProps): React.ReactElement | null => {
   const { borderRadius, background, animation } = useSkeletonConfig();
 

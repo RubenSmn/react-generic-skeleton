@@ -9,7 +9,13 @@ import { mergeMargins } from "../utils/style";
 
 export interface ImageSkeletonProps {
   children: React.ReactElement<HTMLImageElement>;
+  /**
+   * If `true`, the skeleton will show.
+   */
   isLoading?: boolean;
+  /**
+   * If `true`, the skeleton will be a circle.
+   */
   round?: boolean;
   className?: string;
 }
