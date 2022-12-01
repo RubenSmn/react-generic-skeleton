@@ -4,7 +4,7 @@ import { ListSkeleton, ListSkeletonProps } from "../src/skeletons/ListSkeleton";
 import PageLayout, { usePageContext } from "./PageLayout";
 
 const meta: Meta = {
-  title: "ListSkeleton",
+  title: "Components/ListSkeleton",
   component: ListSkeleton,
   argTypes: {
     isLoading: {

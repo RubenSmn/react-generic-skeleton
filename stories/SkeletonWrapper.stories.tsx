@@ -4,7 +4,7 @@ import { SkeletonWrapper, SkeletonWrapperProps } from "../src/SkeletonWrapper";
 import PageLayout, { usePageContext } from "./PageLayout";
 
 const meta: Meta = {
-  title: "SkeletonWrapper",
+  title: "Components/SkeletonWrapper",
   component: SkeletonWrapper,
   argTypes: {
     isLoading: {

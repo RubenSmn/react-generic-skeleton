@@ -4,7 +4,7 @@ import { TextSkeleton, TextSkeletonProps } from "../src/skeletons/TextSkeleton";
 import PageLayout, { usePageContext } from "./PageLayout";
 
 const meta: Meta = {
-  title: "TextSkeleton",
+  title: "Components/TextSkeleton",
   component: TextSkeleton,
   parameters: {
     docs: {

@@ -7,7 +7,7 @@ import {
 import PageLayout, { usePageContext } from "./PageLayout";
 
 const meta: Meta = {
-  title: "ImageSkeleton",
+  title: "Components/ImageSkeleton",
   component: ImageSkeleton,
   argTypes: {
     isLoading: {
