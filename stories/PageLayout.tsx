@@ -1,4 +1,4 @@
-import React from "react";
+import React, { createContext, useContext, useState } from "react";
 import {
   Title,
   Subtitle,
@@ -13,17 +13,49 @@ export interface PageLayoutProps {
   description?: string;
 }
 
+const PageContext = createContext({ isLoading: true });
+
 const PageLayout = ({ subtitle, description }: PageLayoutProps) => {
+  const [isLoading, setIsLoading] = useState(true);
+
+  const toggleLoading = () => {
+    setIsLoading((prev) => !prev);
+  };
+
   return (
-    <>
+    <PageContext.Provider value={{ isLoading }}>
       <Title />
-      <Subtitle>{subtitle}</Subtitle>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "flex-start",
+        }}
+      >
+        <Subtitle>{subtitle}</Subtitle>
+        <button
+          style={{
+            backgroundColor: "#CC5",
+            border: "none",
+            borderRadius: 8,
+            padding: 12,
+            cursor: "pointer",
+          }}
+          onClick={toggleLoading}
+        >
+          Toggle Loading
+        </button>
+      </div>
       <Description>{description}</Description>
       <Primary />
       <ArgsTable />
       <Stories />
-    </>
+    </PageContext.Provider>
   );
+};
+
+export const usePageContext = () => {
+  return useContext(PageContext);
 };
 
 export default PageLayout;

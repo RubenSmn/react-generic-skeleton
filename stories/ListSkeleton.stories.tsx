@@ -1,7 +1,7 @@
 import React from "react";
 import { Meta, Story } from "@storybook/react";
 import { ListSkeleton, ListSkeletonProps } from "../src/skeletons/ListSkeleton";
-import PageLayout from "./PageLayout";
+import PageLayout, { usePageContext } from "./PageLayout";
 
 const meta: Meta = {
   title: "ListSkeleton",
@@ -51,19 +51,22 @@ export default meta;
 const Template: Story<ListSkeletonProps & { childrenCount: number }> = ({
   childrenCount = 3,
   ...args
-}) => (
-  <ListSkeleton {...args}>
-    <ul
-      style={{
-        marginBlock: 0,
-      }}
-    >
-      {Array.from({ length: childrenCount }, (_, x) => x).map((i) => {
-        return <li key={`list-story-${i}`}>List item: {i}</li>;
-      })}
-    </ul>
-  </ListSkeleton>
-);
+}) => {
+  const { isLoading } = usePageContext();
+  return (
+    <ListSkeleton {...args} isLoading={isLoading}>
+      <ul
+        style={{
+          marginBlock: 0,
+        }}
+      >
+        {Array.from({ length: childrenCount }, (_, x) => x).map((i) => {
+          return <li key={`list-story-${i}`}>List item: {i}</li>;
+        })}
+      </ul>
+    </ListSkeleton>
+  );
+};
 
 export const Default = Template.bind({});
 

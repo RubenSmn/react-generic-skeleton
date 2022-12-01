@@ -4,7 +4,7 @@ import {
   ImageSkeleton,
   ImageSkeletonProps,
 } from "../src/skeletons/ImageSkeleton";
-import PageLayout from "./PageLayout";
+import PageLayout, { usePageContext } from "./PageLayout";
 
 const meta: Meta = {
   title: "ImageSkeleton",
@@ -37,16 +37,19 @@ const meta: Meta = {
 
 export default meta;
 
-const Template: Story<ImageSkeletonProps> = ({ ...args }) => (
-  <ImageSkeleton {...args}>
-    <img
-      height={160}
-      src={
-        "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1173&q=80"
-      }
-    />
-  </ImageSkeleton>
-);
+const Template: Story<ImageSkeletonProps> = ({ ...args }) => {
+  const { isLoading } = usePageContext();
+  return (
+    <ImageSkeleton {...args} isLoading={isLoading}>
+      <img
+        height={160}
+        src={
+          "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1173&q=80"
+        }
+      />
+    </ImageSkeleton>
+  );
+};
 
 export const Default = Template.bind({});
 

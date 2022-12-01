@@ -1,7 +1,7 @@
 import React from "react";
 import { Meta, Story } from "@storybook/react";
 import { TextSkeleton, TextSkeletonProps } from "../src/skeletons/TextSkeleton";
-import PageLayout from "./PageLayout";
+import PageLayout, { usePageContext } from "./PageLayout";
 
 const meta: Meta = {
   title: "TextSkeleton",
@@ -20,9 +20,14 @@ const meta: Meta = {
 
 export default meta;
 
-const Template: Story<TextSkeletonProps> = ({ children, ...args }) => (
-  <TextSkeleton {...args}>{children}</TextSkeleton>
-);
+const Template: Story<TextSkeletonProps> = ({ children, ...args }) => {
+  const { isLoading } = usePageContext();
+  return (
+    <TextSkeleton {...args} isLoading={isLoading}>
+      {children}
+    </TextSkeleton>
+  );
+};
 
 export const Default = Template.bind({});
 
