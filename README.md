@@ -1,4 +1,4 @@
-## Installing react-generic-skeleton
+## Installation
 
 ```bash
 yarn add react-generic-skeleton
@@ -13,7 +13,7 @@ npm install react-generic-skeleton
 You can wrap the `SkeletonWrapper` around your components and this will generate
 the skeletons for you.
 
-```tsx
+```jsx
 import { SkeletonWrapper } from "react-generic-skeleton";
 
 <SkeletonWrapper isLoading={true}>
@@ -25,4 +25,25 @@ import { SkeletonWrapper } from "react-generic-skeleton";
     odit exercitationem consectetur!
   </p>
 </SkeletonWrapper>;
+```
+
+### Documentation
+
+The full documentation can be found
+[here](https://rubensmn.github.io/react-generic-skeleton)
+
+### Customization
+
+```jsx
+import { SkeletonProvider } from "react-generic-skeleton";
+
+const config = {
+  animation: "wave",
+  background: "linear-gradient(90deg, #cc7 45%, #dbd8d8 55%, #cc7 100%)",
+};
+
+// Do this at the root of your application
+function App({ children }) {
+  return <SkeletonProvider config={config}>{children}</SkeletonProvider>;
+}
 ```
