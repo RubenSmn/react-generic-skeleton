@@ -17,6 +17,10 @@ export interface ImageSkeletonProps {
    * If `true`, the skeleton will be a circle.
    */
   isRound?: boolean;
+  /**
+   * If `true`, the skeleton will be show the placeholder.
+   */
+  showPlaceholder?: boolean;
   className?: string;
 }
 
@@ -24,6 +28,7 @@ export const ImageSkeleton = ({
   children,
   isLoading = true,
   isRound = false,
+  showPlaceholder = false,
   className,
 }: ImageSkeletonProps): React.ReactElement => {
   const { borderRadius, background, animation } = useSkeletonConfig();
@@ -69,10 +74,12 @@ export const ImageSkeleton = ({
         ...animationProps,
       }}
     >
-      <svg className="rgs-skeleton__image__placeholder" viewBox="0 0 24 16">
-        <circle cx="7" r="1.2" cy="5.4" />
-        <path d="M8.5 8 l2.5 3.01 L14.5 6.5 l4.5 6 H5 l3.5-4.5z" />
-      </svg>
+      {showPlaceholder ? (
+        <svg className="rgs-skeleton__image__placeholder" viewBox="0 0 24 16">
+          <circle cx="7" r="1.2" cy="5.4" />
+          <path d="M8.5 8 l2.5 3.01 L14.5 6.5 l4.5 6 H5 l3.5-4.5z" />
+        </svg>
+      ) : null}
       {clone}
     </div>
   );

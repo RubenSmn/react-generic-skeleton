@@ -64,3 +64,10 @@ withRound.args = {
   isLoading: true,
   isRound: true,
 };
+
+export const withPlaceholder = Template.bind({});
+
+withPlaceholder.args = {
+  isLoading: true,
+  showPlaceholder: true,
+};
