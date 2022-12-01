@@ -3,6 +3,10 @@ on:
   push:
     branches:
       - main
+    paths:
+      - "src/**"
+      - "stories/**"
+      - ".storybook/**"
 
 jobs:
   build-and-deploy:
