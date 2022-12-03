@@ -1,17 +1,36 @@
 import React, { createContext, useContext } from "react";
 
 export interface Animation {
+  /**
+   * Name of the custom animation
+   */
   animationName?: string;
+  /**
+   * The duration of the animaiton
+   */
   animationDuration?: string;
+  /**
+   * The timing function of the animation
+   */
   animationTimingFunction?: string;
+  /**
+   * The delay of the animation
+   */
   animationDelay?: string;
 }
 
-export type AnimationNamePreset = "pulse" | "wave";
-
 export interface SkeletonConfig {
+  /**
+   * The number of pixels that will be applied to the borderRadius of the skeletons
+   */
   borderRadius?: number;
-  animation?: Animation | AnimationNamePreset;
+  /**
+   * The animation that will be played for the skeletons
+   */
+  animation?: Animation | "pulse" | "wave";
+  /**
+   * The background for the skeletons
+   */
   background?: string;
 }
 
