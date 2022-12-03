@@ -2,8 +2,8 @@ import type { StorybookConfig } from "@storybook/react/types";
 
 const config: StorybookConfig = {
   stories: [
-    "../stories/**/*.stories.mdx",
     "../stories/**/*.stories.@(ts|tsx|js|jsx)",
+    "../stories/**/*.stories.mdx",
   ],
   addons: [
     "@storybook/addon-links",
