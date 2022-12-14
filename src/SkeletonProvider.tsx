@@ -1,5 +1,13 @@
 import React, { createContext, useContext } from "react";
 
+/**
+ * The animation for the skeletons
+ *
+ * @animationName name of the custom animation
+ * @animationDuration the duration of the animation
+ * @animationTimingFunction the timing function of the animation
+ * @animationDelay the delay of the animation
+ */
 export interface Animation {
   /**
    * Name of the custom animation
@@ -19,13 +27,24 @@ export interface Animation {
   animationDelay?: string;
 }
 
+/**
+ * The config for the skeletons
+ *
+ * @borderRadius the number of pixels that will be applied to the borderRadius of the skeletons
+ * @animation the animation that will be played for the skeletons
+ * @background the background for the skeletons
+ */
 export interface SkeletonConfig {
   /**
    * The number of pixels that will be applied to the borderRadius of the skeletons
+   *
+   * @defaultValue `12`
    */
   borderRadius?: number;
   /**
    * The animation that will be played for the skeletons
+   *
+   * @defaultValue `pulse`
    */
   animation?: Animation | "pulse" | "wave";
   /**
