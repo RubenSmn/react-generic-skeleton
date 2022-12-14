@@ -37,7 +37,8 @@ export const mergeMargins = (style: any): string | undefined => {
     if (!(marginType in style)) return;
     const m = style[marginType];
 
-    if (marginType !== "margin") return fillPositions(postions, m);
+    if (marginType !== "margin" || typeof m === "number")
+      return fillPositions(postions, m);
 
     const values = m.split(" ");
 
