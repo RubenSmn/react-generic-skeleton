@@ -1,0 +1,24 @@
+import {
+  Canvas,
+  Meta,
+  Story,
+  ArgsTable,
+  Subtitle,
+  Description,
+} from "@storybook/addon-docs";
+import PageLayout, { usePageContext } from "./components/PageLayout";
+import {
+  SkeletonConfigComponent,
+  AnimationComponent,
+} from "./components/Config";
+import { Default as ImageSkeleton } from "./ImageSkeleton.stories";
+
+<Meta title="Components/SkeletonConfig" component={SkeletonConfigComponent} />
+
+# SkeletonConfig
+
+<ArgsTable of={SkeletonConfigComponent} />
+
+## Animation
+
+<ArgsTable of={AnimationComponent} />
